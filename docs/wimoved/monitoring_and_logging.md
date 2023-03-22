@@ -1,3 +1,5 @@
+# Monitoring and Logging
+
 ## Monitoring
 
 For monitoring purposes, WiMoVE exposes a prometheus endpoint. Via the endpoint, information about how many stations are associated, events have been handled and how long the event handling was can be gathered. 

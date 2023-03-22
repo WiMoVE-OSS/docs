@@ -1,3 +1,5 @@
+# Gateway
+
 The gateway is responsible for forwarding the internet traffic. We use an Ubuntu server host. We provide an ansible playbook, that generates a netplan config, a dnsmasq config and the nftables rules for a given number of VXLANs. This playbook will only work with an Ubuntu host and might need some tweaking to fit your use case.
 
 #### FRR
