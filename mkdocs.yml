@@ -11,15 +11,19 @@ theme:
     repo: fontawesome/brands/github
 nav:
   - Home: index.md
+  - Architecture:
+    - architecture/index.md
   - wimoved:
     - wimoved/index.md
     - Development Setup: wimoved/development.md
     - Monitoring and Logging: wimoved/monitoring_and_logging.md
   - Setup Guide:
-    - system_setup/index.md
-    - Access Point: system_setup/access_point.md
-    - Gateway: system_setup/gateway.md
-    - Route Reflector: system_setup/route_reflector.md
+    - setup/index.md
+    - Access Point: setup/access_point.md
+    - Gateway: setup/gateway.md
+    - Route Reflector: setup/route_reflector.md
+markdown_extensions:
+  - footnotes
     
 
 
