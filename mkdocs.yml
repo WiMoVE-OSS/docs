@@ -6,10 +6,33 @@ theme:
   name: material
   features:
     - navigation.instant
-    - navigation.indexes 
+    - navigation.indexes
     - content.code.copy
+    - navigation.footer
   icon:
     repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
 nav:
   - Home: index.md
   - Architecture:
@@ -21,15 +44,15 @@ nav:
     - Monitoring and Logging: wimoved/monitoring_and_logging.md
   - Setup Guide:
     - setup/index.md
-    - Access Point: setup/access_point.md
-    - Gateway: setup/gateway.md
-    - Route Reflector: setup/route_reflector.md
+    - Setup using Ansible: setup/ansible_setup.md
+    - Manual Setup:
+      - setup/manual/index.md
+      - Access Point: setup/manual/access_point.md
+      - Gateway: setup/manual/gateway.md
+      - Route Reflector: setup/manual/route_reflector.md
 markdown_extensions:
   - footnotes
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-    
-
-
-
+  - attr_list

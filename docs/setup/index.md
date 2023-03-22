@@ -1,5 +1,40 @@
 # Setup Guide
 
-After following this guide, you have a working instance of WiMoVE. WiMoVE provides a package you can install on your OpenWRT router but needs some additional services in your network to be useful. One of them is the route reflector and the other one is the gateway. The route reflector is part of the control plane and distributes the information between the access points and the gateway. The gateway is responsible to terminate the overlay networks and provide internet access. We have separate Wiki entries for the setup of an [access point](https://github.com/WiMoVE-OSS/WiMoVE/wiki/Setup---Access-Point), the [route reflector](https://github.com/WiMoVE-OSS/WiMoVE/wiki/Setup---Route-Reflector) and the [gateway](https://github.com/WiMoVE-OSS/WiMoVE/wiki/Setup-gateway). If you encounter any issues during the setup, feel free to drop us a message.
+## Requirements
 
-Especially when setting up multiple access points or many VXLANs on the gateway, deployment can be quite tedious. In a separate repository, we provide ansible playbooks that we use for deployment. They can be a good starting point for you, to build your own ansible playbooks.
+Before getting started, please make sure you have all hardware required for a working WiMoVE setup.
+You need:
+
+- At least one Access Point running OpenWRT 22.03 or later
+- One Ubuntu Server 22.04 or later machine to be used as a Route Reflector
+- One Ubuntu Server 22.04 or later machine to be used as a Gateway
+
+!!! info
+
+    In theory, the Route Reflector and Gateway can be combined into one physical machine. However, for simplicity, we currently do not provide a guide for such a setup.
+
+## Installation Methods
+
+There are two different ways for setting up WiMoVE on your own hardware.
+
+!!! warning
+
+    We try to provide setup instructions that are as up-to-date as possible. However, since WiMoVE is in very active development, breaking changes are likely and documentation may be out of date.
+
+### Setup using Ansible (Recommended)
+
+Since there are a number of services that need to be set up, we recommend using the Ansible installation method.
+
+[Install using Ansible](ansible_setup.md){ .md-button }
+
+
+### Manual Setup
+
+Alternatively, you can also set up all the components manually.
+
+!!! warning
+
+    There are a number of tasks in this process that can be extremely repetitive (i.e., setting up interfaces, provisioning multiple routers).
+    For this reason, we only recommend this option if you just want to try out WiMoVE in a small setup and are willing to try around a bit.
+
+[Install manually](manual/){ .md-button }
