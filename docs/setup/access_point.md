@@ -1,7 +1,7 @@
 ## Installing WiMoVE
 
 1. Find out what architecture your access point is by looking it up on the OpenWRT wiki.
-1. Download the package for the matching architecture for your access point. You find the package in the artifacts of the build pipeline or you can cross-compile it yourself.
+1. Download the package for the matching architecture for your access point. You find the package in the artifacts of the build pipeline or you can cross&#8209;compile it yourself.
 1. Verify that you have ssh connectivity to the access point. [OpenWRT guide for ssh](https://openwrt.org/docs/guide-quick-start/sshadministration)
 1. Copy the package via SCP from your computer to the access point `scp -O <Path to WiMoVE on your machine> <access-point>`
 1. Login via ssh on to your access point.
