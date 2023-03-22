@@ -8,9 +8,9 @@ Overlay L2 domains "follow" the stations, being resized on demand, thus preservi
 
 WiMoVE is built with standard network protocols, on top of open-source technology:
 
-- The overlay networks use **BGP EVPN** with **VXLAN** encapsulation.
-- All BGP speakers run **FRR** to exchange EVPN routes.
-- The access points run **OpenWRT** with a custom, open-source daemon called `wimoved`.
+- The overlay networks use [BGP EVPN](https://www.rfc-editor.org/rfc/rfc8365.html) with [VXLAN](https://www.rfc-editor.org/rfc/rfc7348) encapsulation.
+- All BGP speakers run [FRRouting](https://frrouting.org/) to exchange EVPN routes.
+- The access points run [OpenWRT](https://openwrt.org/) with a custom, open-source daemon called [wimoved](https://github.com/wimove-oss/wimoved).
 
 This solution allows for using commodity access points running OpenWRT for large-scale Wi-Fi deployments, even from different vendors.
 
