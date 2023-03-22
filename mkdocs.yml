@@ -1,5 +1,26 @@
 site_name: WiMoVE Documentation
+site_url: https://wimove-oss.github.io/docs/
+repo_name: WiMoVE-oss/docs
+repo_url: https://github.com/WiMoVE-oss/docs
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.indexes 
+  icon:
+    repo: fontawesome/brands/github
+nav:
+  - Home: index.md
+  - wimoved:
+    - wimoved/index.md
+    - Development Setup: wimoved/development.md
+    - Monitoring and Logging: wimoved/monitoring_and_logging.md
+  - Setup Guide:
+    - system_setup/index.md
+    - Access Point: system_setup/access_point.md
+    - Gateway: system_setup/gateway.md
+    - Route Reflector: system_setup/route_reflector.md
+    
+
 
 
