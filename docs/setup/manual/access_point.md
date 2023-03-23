@@ -200,8 +200,6 @@ Before we can use the AP, we need to fill this file with some information about 
 ```text
 # The location of the hostapd sockets. Leave like this for normal openWRT setup
 hapd_sockdir=/var/run/hostapd
-# Names of the sockets for the SSIDs you want to be managed by wimoved
-sockets=
 # Access group for hostapd sockets. Leave unchanged.
 hapd_group=network
 # Interval (seconds) after which interfaces for disconnected stations are removed
