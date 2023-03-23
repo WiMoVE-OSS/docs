@@ -116,6 +116,7 @@ In addition to the access points, we use a route reflector to build our control 
     ```bash
     sudo systemctl restart frr
     ```
+
 ## Verify the Setup
 
 If you already configured an access point, you can verify the peering by running:
