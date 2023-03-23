@@ -1,4 +1,4 @@
-# Set up an Access Point
+# Set Up an Access Point
 
 This part of the guide will show you how to set up wimoved on your openWRT Access Point.
 
@@ -12,7 +12,7 @@ This part of the guide will show you how to set up wimoved on your openWRT Acces
 
     The AP needs to have an internet connection to be able to install dependencies
 
-## Prepare your AP
+## Prepare Your AP
 
 1. Verify that you have ssh connectivity to the access point. If not, take a look at the [OpenWRT guide for ssh](https://openwrt.org/docs/guide-quick-start/sshadministration).
 
@@ -20,9 +20,9 @@ This part of the guide will show you how to set up wimoved on your openWRT Acces
 
     Unless specified otherwise, all commands given in this guide should be run in the shell of the Access Point.
 
-## Set up Hostapd
+## Set Up Hostapd
 
-### Install the correct version of Hostapd
+### Install The Correct Version of Hostapd
 
 Normal openWRT setups come with a stripped-down version of hostapd called `wpad` or `wpad-mini`. These do however not come with all features we require for our setup.
 
@@ -34,7 +34,7 @@ Normal openWRT setups come with a stripped-down version of hostapd called `wpad`
     ```
 1. Reboot the Access Point
 
-### Configure hostAPD
+### Configure Hostapd
 
 The `hostapd.conf` config file which controls hostapd will be generated for you from the openWRT wireless configuration. This configuration can be edited via the web interface or by modifying the file located at `/etc/config/wireless`. We will now guide you on how to set up hostapd on your AP.
 
@@ -70,7 +70,7 @@ The `hostapd.conf` config file which controls hostapd will be generated for you 
 
 When connecting to the Wi-Fi network you just created, you should see that an interface with the name `vlan*` gets created where \* is an arbitrary number. The interface should disappear, after the station disconnects. You can check the existing interfaces with `ip l`. If you do not see the interfaces, recheck that you followed the guide exactly.
 
-## Set up FRR
+## Set Up FRR
 
 FRRouting is used to enable the control plane of the underlying VXLAN EVPN networks. It needs to be installed on each AP and configured to talk to the route reflector in your network.
 
@@ -150,11 +150,11 @@ router bgp 65000
 
 You can check the configuration of FRR using the `vtysh` command. This command provides a stateful shell to manipulate FRR. More detailed documentation about vtysh can be found [here](https://docs.frrouting.org/en/latest/vtysh.html)
 
-## Set up wimoved
+## Set Up Wimoved
 
 Wimoved is the daemon we provide that enables all Access Point features required for WiMoVE. It as well as all other dependencies need to be installed in every AP in your Wi&#8209;Fi system.
 
-### Obtain the correct binary
+### Obtain the Correct Binary
 
 1. Find out which architecture your access point uses by looking it up on the [OpenWRT Table of Hardware](https://openwrt.org/toh/start).
 1. Download the package for the matching architecture for your access point. There are three ways to achieve this:
@@ -162,7 +162,7 @@ Wimoved is the daemon we provide that enables all Access Point features required
       2. Download the binary from a recent pipeline run in our [GitHub Repository](https://github.com/WiMoVE-OSS/wimoved)
       3. Cross-Compile it yourself. See the [Development Guide](../../../wimoved/) for details.
 
-### Copy wimoved to your AP via SSH
+### Copy Wimoved to Your AP Via SSH
 
 !!! info
 
@@ -180,7 +180,7 @@ Wimoved is the daemon we provide that enables all Access Point features required
     ```
     All further commands will now again need to be run on your AP.
 
-### Install wimoved
+### Install Wimoved
 
 1. Install the package on your access point via
 
@@ -191,7 +191,7 @@ Wimoved is the daemon we provide that enables all Access Point features required
 2. Run `wimove`. You should see an error message, showing that wimoved was  installed successfully.
 
 
-### Configure WiMoVE
+### Configure Wimoved
 
 The wimoved config file is located at `/etc/wimoved/config`.
 Before we can use the AP, we need to fill this file with some information about your installation.
