@@ -47,6 +47,7 @@ nav:
     - Setup using Ansible: setup/ansible_setup.md
     - Manual Setup:
       - setup/manual/index.md
+      - System Parameters: setup/manual/parameters.md
       - Access Point: setup/manual/access_point.md
       - Gateway: setup/manual/gateway.md
       - Route Reflector: setup/manual/route_reflector.md

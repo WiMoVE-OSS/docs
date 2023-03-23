@@ -184,6 +184,8 @@ We will use the Ubuntu tool `netplan` to set up and persist the required network
         This setup is for a very basic gateway. Please make sure you understand what it does and change it for your needs.
         Especially, you may want to increase the number of VNIs depending on what you set in the APs.
 
+        **Refer back to the parameters you chose for your setup.**
+
 2. Restart the machine
 
     !!! tip
@@ -294,7 +296,11 @@ We will use the Ubuntu tool `netplan` to set up and persist the required network
     ```bash
     sudo apt install dnsmasq
     ```
-1. Update the file `/etc/dnsmasq.conf` with the following content. You likely need to add more entries for the correct IP ranges when you have more than 3 VNIs in use
+1. Update the file `/etc/dnsmasq.conf` with the following content. You likely need to add more entries for the correct IP ranges when you have more than 3 VNIs in use.
+
+    !!! tip
+
+        Refer back to the parameters you decided on for the IPv4 range for each VNI
 
     ??? abstract "/etc/dnsmasq.conf"
 
@@ -312,7 +318,7 @@ We will use the Ubuntu tool `netplan` to set up and persist the required network
         dhcp-range=10.0.3.100,10.0.3.200,255.255.255.0,5m
         ```
 
-3. Restart dnsmasq
+2. Restart dnsmasq
 
     ```bash
     sudo systemctl restart dnsmasq
