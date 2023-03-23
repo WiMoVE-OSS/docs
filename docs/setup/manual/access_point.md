@@ -208,10 +208,19 @@ hapd_group=network
 cleanup_interval=30
 # Number of VNIs the stations are assigned to. wimoved will use VNI 1 to n.
 max_vni=20
-
 ```
 
 !!! tip
+
+    To find out what you have to set for the `sockets` parameter, you can run
+    ```bash
+    ls -l /var/run/hostapd/
+    ```
+    There you should be able to see at least one file called `wlan0`, `wlan1` or similar.
+    Place all of these found files (except the one called global) in a comma-separated list for the `sockets` parameter
+
+
+!!! info
 
     If you have any configuration needs that are not provided by the current configuration options, feel free to [open an issue](https://github.com/WiMoVE-OSS/wimoved/issues/new).
 
