@@ -2,6 +2,11 @@ site_name: WiMoVE Documentation
 site_url: https://wimove-oss.github.io/docs/
 repo_name: WiMoVE-oss/docs
 repo_url: https://github.com/WiMoVE-oss/docs
+copyright: "🅭 🅯 🄎 Attribution-ShareAlike 4.0 <a href='https://creativecommons.org/licenses/by-sa/4.0/'>CC BY SA</a>"
+extra:
+  social:
+    - link: https://github.com/WiMoVE-OSS/wimoved/
+      icon: fontawesome/brands/github
 theme:
   name: material
   features:
