@@ -42,7 +42,7 @@ Then, the overlay L2 domains change to look like the following diagram:
 
 ![Overlay Networks after Roaming](../images/architecture/after_roam.png)
 
-We can also create a diagram of BGP peerings where the black lines are iBGP peerings:
+We can also create a diagram of iBGP peerings:
 
 ![BGP peerings](../images/architecture/bgp_peerings.png)
 
