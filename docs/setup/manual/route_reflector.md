@@ -96,20 +96,8 @@ In addition to the access points, we use a route reflector to build our control 
 1. Ensure that only the `frr` user has read and write permissions to the file and the `frr` group can read the file. All other users should not have any access. To achieve this, run
 
     ```bash
-    sudo chmod 640 /rtc/frr/*
+    sudo chmod 640 /etc/frr/*
     ```
-
-    !!! tip
-
-        When you now run
-        ```bash
-        ls -l /etc/frr/
-        ```
-        you should see the following permissions:
-        ```bash
-        -rw-r-----   1 frr  frr daemons
-        -rw-r-----   1 frr  frr  frr.conf
-        ```
 
 1. Restart `frr` by executing
 
@@ -117,13 +105,13 @@ In addition to the access points, we use a route reflector to build our control 
     sudo systemctl restart frr
     ```
 
-## Verify the Setup
+## Verifying the Setup
 
 If you already configured an access point, you can verify the peering by running:
 
 ```bash
-vtysh
-show bgp neighbors
+$ sudo vtysh
+rr# show bgp neighbor
 ```
 
 It should say that the connection to the access point is established.

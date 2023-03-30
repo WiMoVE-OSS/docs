@@ -95,20 +95,8 @@ We use an Ubuntu server host as the basis for this setup.
 1. Ensure that only the `frr` user has read and write permissions to the file and the `frr` group can read the file. All other users should not have any access. To achieve this, run
 
     ```bash
-    sudo chmod 640 /rtc/frr/*
+    sudo chmod 640 /etc/frr/*
     ```
-
-    !!! tip
-
-        When you now run
-        ```bash
-        ls -l /etc/frr/
-        ```
-        you should see the following permissions:
-        ```bash
-        -rw-r-----   1 frr  frr daemons
-        -rw-r-----   1 frr  frr  frr.conf
-        ```
 
 1. Restart `frr` by executing
 
@@ -194,7 +182,7 @@ We will use the Ubuntu tool `netplan` to set up and persist the required network
 
 ??? tip "Setting up VXLANs without netplan"
 
-    As an alternative, you can also set up the interfaces using the `ip` command directly. Note that these interfaces will not persist rebooting so you have to run the following script on every boot:
+    As an alternative, you can also set up the interfaces using the `ip` command directly. Note that these interfaces will not persist on reboot so you have to run the following script on every boot:
 
     ```bash
     #!/bin/bash
@@ -223,16 +211,12 @@ We will use the Ubuntu tool `netplan` to set up and persist the required network
     ```
 1. Uncomment the line
    ```text
-   #net.ipv4.ip_forward=1
-   ```
-   so that it looks like
-   ```text
    net.ipv4.ip_forward=1
    ```
    to enable IPv4 forwarding
 2. Uncomment the line
     ```text
-    #net.ipv6.conf.all.forwarding=1
+    net.ipv6.conf.all.forwarding=1
     ```
     to enable IPv6 forwarding
 
@@ -242,7 +226,7 @@ We will use the Ubuntu tool `netplan` to set up and persist the required network
     ```
 
 
-## Setting Up NFTables
+## Setting Up Nftables
 
 1. Make sure you have `nftables` installed by running
     ```bash

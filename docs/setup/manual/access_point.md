@@ -81,75 +81,81 @@ FRRouting is used to enable the control plane of the underlying VXLAN EVPN netwo
     opkg update && opkg install frr-bgpd frr-zebra frr-watchfrr frr-vtysh
     ```
 
-1. Create the file `/etc/frr/daemons` with the following content and replacing the placeholders with the corresponding IP addresses in your network:
-```text
-log syslog informational
-ip nht resolve-via-default
-ip6 nht resolve-via-default
-router bgp 65000
-  bgp router-id <YOUR AP IP>
-  no bgp default ipv4-unicast
-  neighbor fabric peer-group
-  neighbor fabric remote-as 65000
-  neighbor fabric capability extended-nexthop
-  neighbor fabric ebgp-multihop 5
-  ! BGP sessions with route reflectors
-  neighbor <YOUR ROUTE REFLECTOR IP> peer-group fabric
-  !
-  address-family l2vpn evpn
-   neighbor fabric activate
-   advertise-all-vni
-  exit-address-family
-  !
-!
-```
-1. Create the file `/etc/frr/daemons` with the following content
-
-    ```text
-
-    bgpd=yes
-    ospfd=no
-    ospf6d=no
-    ripd=no
-    ripngd=no
-    isisd=no
-    pimd=no
-    ldpd=no
-    nhrpd=no
-    eigrpd=no
-    babeld=no
-    sharpd=no
-    pathd=no
-    pbrd=no
-    bfdd=no
-    fabricd=no
-    vrrpd=no
+1. Create the file `/etc/frr/frr.conf` with the following content and replacing the placeholders with the corresponding IP addresses in your network:
 
 
-    vtysh_enable=yes
-    zebra_options="  -A 127.0.0.1 -s 90000000"
-    bgpd_options="   -A 127.0.0.1"
-    ospfd_options="  -A 127.0.0.1"
-    ospf6d_options=" -A ::1"
-    ripd_options="   -A 127.0.0.1"
-    ripngd_options=" -A ::1"
-    isisd_options="  -A 127.0.0.1"
-    pimd_options="   -A 127.0.0.1"
-    ldpd_options="   -A 127.0.0.1"
-    nhrpd_options="  -A 127.0.0.1"
-    eigrpd_options=" -A 127.0.0.1"
-    babeld_options=" -A 127.0.0.1"
-    sharpd_options=" -A 127.0.0.1"
-    pbrd_options="   -A 127.0.0.1"
-    staticd_options="-A 127.0.0.1"
-    bfdd_options="   -A 127.0.0.1"
-    fabricd_options="-A 127.0.0.1"
-    vrrpd_options="  -A 127.0.0.1"
-    ```
+    ??? abstract "/etc/frr/frr.conf"
 
-1. Restart `frr` by running `service frr restart`
+        ```text
+        log syslog informational
+        ip nht resolve-via-default
+        ip6 nht resolve-via-default
+        router bgp 65000
+        bgp router-id <YOUR AP IP>
+        no bgp default ipv4-unicast
+        neighbor fabric peer-group
+        neighbor fabric remote-as 65000
+        neighbor fabric capability extended-nexthop
+        neighbor fabric ebgp-multihop 5
+        ! BGP sessions with route reflectors
+        neighbor <YOUR ROUTE REFLECTOR IP> peer-group fabric
+        !
+        address-family l2vpn evpn
+        neighbor fabric activate
+        advertise-all-vni
+        exit-address-family
+        !
+        !
+        ```
 
-You can check the configuration of FRR using the `vtysh` command. This command provides a stateful shell to manipulate FRR. More detailed documentation about vtysh can be found [here](https://docs.frrouting.org/en/latest/vtysh.html)
+1. Create the file `/etc/frr/daemons` with the following content:
+
+    ??? abstract "/etc/frr/daemons"
+        ```text
+
+        bgpd=yes
+        ospfd=no
+        ospf6d=no
+        ripd=no
+        ripngd=no
+        isisd=no
+        pimd=no
+        ldpd=no
+        nhrpd=no
+        eigrpd=no
+        babeld=no
+        sharpd=no
+        pathd=no
+        pbrd=no
+        bfdd=no
+        fabricd=no
+        vrrpd=no
+
+
+        vtysh_enable=yes
+        zebra_options="  -A 127.0.0.1 -s 90000000"
+        bgpd_options="   -A 127.0.0.1"
+        ospfd_options="  -A 127.0.0.1"
+        ospf6d_options=" -A ::1"
+        ripd_options="   -A 127.0.0.1"
+        ripngd_options=" -A ::1"
+        isisd_options="  -A 127.0.0.1"
+        pimd_options="   -A 127.0.0.1"
+        ldpd_options="   -A 127.0.0.1"
+        nhrpd_options="  -A 127.0.0.1"
+        eigrpd_options=" -A 127.0.0.1"
+        babeld_options=" -A 127.0.0.1"
+        sharpd_options=" -A 127.0.0.1"
+        pbrd_options="   -A 127.0.0.1"
+        staticd_options="-A 127.0.0.1"
+        bfdd_options="   -A 127.0.0.1"
+        fabricd_options="-A 127.0.0.1"
+        vrrpd_options="  -A 127.0.0.1"
+        ```
+
+1. Restart `frr` by running `service frr restart`.
+
+You can check the configuration of FRR using the `vtysh` command. This command provides a stateful shell to manipulate FRR. More detailed documentation about vtysh can be found [here](https://docs.frrouting.org/en/latest/vtysh.html).
 
 ## Setting Up Wimoved
 
