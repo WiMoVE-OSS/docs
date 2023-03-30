@@ -80,6 +80,9 @@ There, you can see a number of groups. For route reflector and gateway, please i
 
 For the AP section, please put the different types of APs with their names and IP addresses in the inventory.
 
+## Deploy to different APs
+
+The ansible playbook currently supports two different types of APs. `zyxel` and `linksys`. If you want to have more or other models, you just have to create the directories and in `roles/access-point/{files,templates}/model-name`. Then you can add a new group to the children of the group `openwrt` in the inventory and set the `directory` variable accordingly. Then follow the next steps.
 ## Gather Binaries
 
 1. Find out which architecture your access point uses by looking it up on the [OpenWRT Table of Hardware](https://openwrt.org/toh/start).
@@ -87,11 +90,11 @@ For the AP section, please put the different types of APs with their names and I
       1. Download the binary from the latest release on the [Releases Page](https://github.com/WiMoVE-OSS/wimoved/releases)
       2. Download the binary from a recent pipeline run in our [GitHub Repository](https://github.com/WiMoVE-OSS/wimoved)
       3. Cross-Compile it yourself. See the [Development Guide](../../../wimoved/) for details.
-1. Place the binary in the corresponding folder for your AP type. Make sure that it has the file extenstion `.ipk` and it is the only `.ipk` file in that directory.
+1. Place the binary in the corresponding folder for your AP type. The filepath is`roles/access-point/files/model-name`. Make sure that it has the file extenstion `.ipk` and it is the only `.ipk` file in that directory.
 
 !!! tip
 
-    You can use the zyxel and linksys folder for any AP type you like. Just make sure you do not rename the folders and keep track of which AP type is which. As long as you place the correct binaries for your APs in the correct folder, everything should work.
+    You can use arbitrary model names. The `directory` variable for a host only has to match the directory name in `roles/access-points/files` to get the correct binary.
 
 ## Generate openWRT configuration files
 
@@ -106,7 +109,7 @@ For this reason, we do not provide configuration files for your APs but rather g
     ```
     to export the configuration for the AP.
 
-1. Copy the output of the command and place it in a file called `config.ota.j2` in the folder that corresponds to your AP type in the ansible playbook.
+1. Copy the output of the command and place it in a file called `config.ota.j2` in the folder `roles/access-point/templates/model-name` that corresponds to your AP type in the ansible playbook.
 1. Open the file in a text editor.
 1. Go to the end of the file. There, you should find a section for each wireless network you configured in the previous step.
 1. Adjust each of these `wifi-iface` sections so that they contain the following lines:
