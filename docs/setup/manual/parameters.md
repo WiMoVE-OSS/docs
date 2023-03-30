@@ -10,7 +10,7 @@ Every network is different. For this reason, there are a number of parameters in
 | Number of VNIs             | `20`            |
 | VNI IPv4 range template    | `10.1.X.0/24`   |
 
-## Network IP range
+### Network IP range
 
 All APs, gateways and route reflectors need to talk to each other.
 For this reason, we need L3 connectivity between them.
@@ -21,21 +21,21 @@ This IP range can be any size, just make sure you know what it is and that all d
 | TCP      | `179`  | BGP     |
 | UDP      | `4789` | VXLAN   |
 
-## Route Reflector IP Address
+### Route Reflector IP Address
 
 This is the IP address at which the route reflector can be reached for both the APs and the gateway.
 
-## Gateway IP Address
+### Gateway IP Address
 
 This is the IP address where the gateway can be reached.
 
-## Number of VNIs
+### Number of VNIs
 
 This number decides how many virtual L2 networks will be created and devices will be split up into.
 In theory, any 24-Bit number can be chosen. However, in practice, this number is limited by how many network interfaces your gateway can support.
 We recommend getting started with a number around 20 and scaling up if VXLANs get too crowded.
 
-## VNI IPv4 Range Template
+### VNI IPv4 Range Template
 
 Each VNI needs its own IP range that will then be used to assign IP addresses via DHCP.
 

@@ -10,12 +10,10 @@ This guide will show you how you can install you own WiMoVE setup using our ansi
 
 The parts of this guide will provide information on how to set up each component. Before getting started, please make sure you understand the purpose of each component in the whole system by reading the [Architecture page](../../architecture/index.md).
 
+WiMoVE provides a package you can install on your OpenWrt router but needs some additional services in your network to be useful:
 
-WiMoVE provides a package you can install on your OpenWRT router but needs some additional services in your network to be useful.
-
-One of them is the route reflector and the other one is the gateway. The route reflector is part of the control plane and distributes the information between the access points and the gateway.
-
-The gateway is responsible for terminating the overlay networks and provide internet access.
+- The **gateway** is responsible for terminating the overlay networks and provide internet access.
+- The **route reflector** is part of the control plane. It receives routing information and distributes the information to the access points and the gateway.
 
 ## Clone the Repository
 
@@ -86,7 +84,7 @@ For the AP section, please put the different types of APs with their names and I
 The ansible playbook currently supports two different types of APs. `zyxel` and `linksys`. If you want to have more or other models, you just have to create the directories and in `roles/access-point/{files,templates}/model-name`. Then you can add a new group to the children of the group `openwrt` in the inventory and set the `directory` variable accordingly. Then follow the next steps.
 ## Gather Binaries
 
-1. Find out which architecture your access point uses by looking it up on the [OpenWRT Table of Hardware](https://openwrt.org/toh/start).
+1. Find out which architecture your access point uses by looking it up on the [OpenWrt Table of Hardware](https://openwrt.org/toh/start).
 1. Download the package for the matching architecture for your access point. There are three ways to achieve this:
       1. Download the binary from the latest release on the [Releases Page](https://github.com/WiMoVE-OSS/wimoved/releases)
       2. Download the binary from a recent pipeline run in our [GitHub Repository](https://github.com/WiMoVE-OSS/wimoved)
@@ -97,7 +95,7 @@ The ansible playbook currently supports two different types of APs. `zyxel` and 
 
     You can use arbitrary model names. The `directory` variable for a host only has to match the directory name in `roles/access-points/files` to get the correct binary.
 
-## Generate openWRT configuration files
+## Generate OpenWrt configuration files
 
 Since each AP is different, we need different kinds of configuration files.
 For this reason, we do not provide configuration files for your APs but rather guide you how to create them yourself.
@@ -129,13 +127,13 @@ For this reason, we do not provide configuration files for your APs but rather g
     ```
     !!! warning
 
-        Make sure that there are no two lines with the same name in each of the `wifi-iface` sections of the file. Otherwise, openWRT will later not accept the configuration.
+        Make sure that there are no two lines with the same name in each of the `wifi-iface` sections of the file. Otherwise, OpenWrt will later not accept the configuration.
 
 ## Installing Dependencies for Ansible and Running the Playbook
 
 ### Install Dependencies
 
-We use an ansible plugin to provision openWRT. This plugin needs to be installed by running
+We use an ansible plugin to provision OpenWrt. This plugin needs to be installed by running
 ```bash
 ansible-galaxy install -r requirements.yml
 ```
@@ -148,7 +146,7 @@ For this to work properly, you have to set up SSH key authentication on each of 
 
 !!! tip
 
-    To copy your SSH key to your APs, you can either use the openWRT web interface or the typical `ssh-copy-id` command.
+    To copy your SSH key to your APs, you can either use the OpenWrt web interface or the typical `ssh-copy-id` command.
 
 ### SSH setup
 

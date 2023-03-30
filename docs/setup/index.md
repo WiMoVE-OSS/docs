@@ -5,7 +5,7 @@
 Before getting started, please make sure you have all hardware required for a working WiMoVE setup.
 You need:
 
-- At least one Access Point running OpenWRT 22.03 or later
+- At least one Access Point running OpenWrt 22.03 or later
 - One Ubuntu Server 22.04 or later machine to be used as a Route Reflector
 - One Ubuntu Server 22.04 or later machine to be used as a Gateway
 

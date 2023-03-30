@@ -1,30 +1,30 @@
-# Set Up an Access Point
+# Setting Up an Access Point
 
-This part of the guide will show you how to set up wimoved on your openWRT Access Point.
+This part of the guide will show you how to set up wimoved on your OpenWrt Access Point.
 
 !!! info
 
-    openWRT is available for a large number of different types of Access Points. Different Access Points may use different processor architectures. For this reason, you need a version of wimoved that is compatible with your architecture.
+    OpenWrt is available for a large number of different types of access points. Different APs may use different processor architectures. For this reason, you need a version of wimoved that is compatible with your architecture.
 
-    We try to provide builds for as many architectures as reasonably possible. If you have openWRT hardware you would like to see supported, please [open an issue](https://github.com/WiMoVE-OSS/wimoved/issues/new).
+    We try to provide builds for as many architectures as reasonably possible. If you have OpenWrt hardware you would like to see supported, please [open an issue](https://github.com/WiMoVE-OSS/wimoved/issues/new).
 
 !!! tip
 
     The AP needs to have an internet connection to be able to install dependencies
 
-## Prepare Your AP
+## Preparing Your AP
 
-1. Verify that you have ssh connectivity to the access point. If not, take a look at the [OpenWRT guide for ssh](https://openwrt.org/docs/guide-quick-start/sshadministration).
+1. Verify that you have SSH connectivity to the access point. If not, take a look at the [OpenWrt guide for SSH](https://openwrt.org/docs/guide-quick-start/sshadministration).
 
 !!! info
 
     Unless specified otherwise, all commands given in this guide should be run in the shell of the Access Point.
 
-## Set Up Hostapd
+## Setting Up Hostapd
 
-### Install The Correct Version of Hostapd
+### Installing The Correct Version of Hostapd
 
-Normal openWRT setups come with a stripped-down version of hostapd called `wpad` or `wpad-mini`. These do however not come with all features we require for our setup.
+Regular OpenWrt setups come with a stripped-down version of hostapd called `wpad` or `wpad-mini`. These do however not come with all features we require for our setup.
 
 1. Uninstall the unneeded `wpad-mini`
     ```bash
@@ -34,16 +34,17 @@ Normal openWRT setups come with a stripped-down version of hostapd called `wpad`
     ```
 1. Reboot the Access Point
 
-### Configure Hostapd
+### Configuring Hostapd
 
-The `hostapd.conf` config file which controls hostapd will be generated for you from the openWRT wireless configuration. This configuration can be edited via the web interface or by modifying the file located at `/etc/config/wireless`. We will now guide you on how to set up hostapd on your AP.
+OpenWrt generates the hostapd configuration file `hostapd.conf` from the OpenWrt wireless configuration.
+This configuration can be edited via the web interface or by modifying the file located at `/etc/config/wireless`. We will now guide you on how to set up hostapd on your AP.
 
 1. Go to the web interface of the AP and configure a WPA2-PSK wireless network for each radio you wish to use. Make sure to press save at the end.
 1. Open the file `/etc/config/wireless` in a text editor.
 
     !!! tip
 
-        openWRT only comes with a version of `vi` out of the box. If you are not comfortable with vim, you can also install the nano editor by running
+        OpenWrt only comes with a version of `vi` out of the box. If you are not comfortable with vim, you can also install the nano editor by running
         ```bash
         opkg update && opkg install nano
         ```
@@ -70,7 +71,7 @@ The `hostapd.conf` config file which controls hostapd will be generated for you 
 
 When connecting to the Wi-Fi network you just created, you should see that an interface with the name `vlan*` gets created where \* is an arbitrary number. The interface should disappear, after the station disconnects. You can check the existing interfaces with `ip l`. If you do not see the interfaces, recheck that you followed the guide exactly.
 
-## Set Up FRR
+## Setting Up FRR
 
 FRRouting is used to enable the control plane of the underlying VXLAN EVPN networks. It needs to be installed on each AP and configured to talk to the route reflector in your network.
 
@@ -93,7 +94,7 @@ router bgp 65000
   neighbor fabric capability extended-nexthop
   neighbor fabric ebgp-multihop 5
   ! BGP sessions with route reflectors
-  neighbor >YOUR ROUTE REFLEXTOR IP> peer-group fabric
+  neighbor <YOUR ROUTE REFLECTOR IP> peer-group fabric
   !
   address-family l2vpn evpn
    neighbor fabric activate
@@ -150,19 +151,19 @@ router bgp 65000
 
 You can check the configuration of FRR using the `vtysh` command. This command provides a stateful shell to manipulate FRR. More detailed documentation about vtysh can be found [here](https://docs.frrouting.org/en/latest/vtysh.html)
 
-## Set Up Wimoved
+## Setting Up Wimoved
 
 Wimoved is the daemon we provide that enables all Access Point features required for WiMoVE. It as well as all other dependencies need to be installed in every AP in your Wi&#8209;Fi system.
 
-### Obtain the Correct Binary
+### Obtaining the Correct Binary
 
-1. Find out which architecture your access point uses by looking it up on the [OpenWRT Table of Hardware](https://openwrt.org/toh/start).
+1. Find out which architecture your access point uses by looking it up on the [OpenWrt Table of Hardware](https://openwrt.org/toh/start).
 1. Download the package for the matching architecture for your access point. There are three ways to achieve this:
       1. Download the binary from the latest release on the [Releases Page](https://github.com/WiMoVE-OSS/wimoved/releases)
       2. Download the binary from a recent pipeline run in our [GitHub Repository](https://github.com/WiMoVE-OSS/wimoved)
       3. Cross-Compile it yourself. See the [Development Guide](../../../wimoved/) for details.
 
-### Copy Wimoved to Your AP Via SSH
+### Copying Wimoved to Your AP Via SSH
 
 !!! info
 
@@ -180,25 +181,25 @@ Wimoved is the daemon we provide that enables all Access Point features required
     ```
     All further commands will now again need to be run on your AP.
 
-### Install Wimoved
+### Installing Wimoved
 
 1. Install the package on your access point via
 
     ```bash
-    opkg update && opkg install <Path to WiMoVE>`
+    opkg update && opkg install <Path to wimoved>`
     ```
 
-2. Run `wimove`. You should see an error message, showing that wimoved was  installed successfully.
+2. Run `wimoved`. You should see an error message, showing that wimoved was installed successfully.
 
 
-### Configure Wimoved
+### Configuring Wimoved
 
 The wimoved config file is located at `/etc/wimoved/config`.
 Before we can use the AP, we need to fill this file with some information about your installation.
 
 1. Create a file located at `/etc/wimoved/config` and fill it with the following lines:
 ```text
-# The location of the hostapd sockets. Leave like this for normal openWRT setup
+# The location of the hostapd sockets. Leave like this for regular OpenWrt setup
 hapd_sockdir=/var/run/hostapd
 # Access group for hostapd sockets. Leave unchanged.
 hapd_group=network
@@ -208,18 +209,8 @@ cleanup_interval=30
 max_vni=20
 ```
 
-!!! tip
-
-    To find out what you have to set for the `sockets` parameter, you can run
-    ```bash
-    ls -l /var/run/hostapd/
-    ```
-    There you should be able to see at least one file called `wlan0`, `wlan1` or similar.
-    Place all of these found files (except the one called global) in a comma-separated list for the `sockets` parameter
-
-
 !!! info
 
     If you have any configuration needs that are not provided by the current configuration options, feel free to [open an issue](https://github.com/WiMoVE-OSS/wimoved/issues/new).
 
-After a successful configuration, you can run `wimove` and it should start without any errors. When connecting with a client, you should see log messages.
+After a successful configuration, you can run `wimoved` and it should start without any errors. When connecting with a client, you should see log messages.
