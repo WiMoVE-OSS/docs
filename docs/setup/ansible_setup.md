@@ -61,6 +61,7 @@ Please set the IP address of the route reflector in the variable `route_reflecto
 ### Set Gateway Configuration
 
 For the gateway, we need to additionally configure the names of the network interfaces that are used.
+
 - `uplink_if` is the interface that will be used for internet access for the overlay networks
 - `wimove_if` is the interface that will be connected to the L3 environment where all APs can be reached
 
