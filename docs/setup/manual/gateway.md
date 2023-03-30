@@ -8,7 +8,7 @@ We use an Ubuntu server host as the basis for this setup.
     We will provide you with some sample configurations in this chapter.
     Keep in mind that you likely have to update these for sour specific setup depending on the number of VNIs you want to use and the IP space available to you.
 
-## Set Up FRR
+## Setting Up FRR
 
 1. Install `frr` on the gateway.
 
@@ -116,7 +116,7 @@ We use an Ubuntu server host as the basis for this setup.
     sudo systemctl restart frr
     ```
 
-## Set Up VXLAN Interfaces and Bridges
+## Setting Up VXLAN Interfaces and Bridges
 
 We will use the Ubuntu tool `netplan` to set up and persist the required network devices. Check below for a method without the need for netplan.
 
@@ -242,7 +242,7 @@ We will use the Ubuntu tool `netplan` to set up and persist the required network
     ```
 
 
-## Set Up NFTables
+## Setting Up NFTables
 
 1. Make sure you have `nftables` installed by running
     ```bash
@@ -290,7 +290,7 @@ We will use the Ubuntu tool `netplan` to set up and persist the required network
 
 1. Restart the system
 
-## Set Up Dnsmasq
+## Setting Up Dnsmasq
 
 1. Install `dnsmasq` as a dhcp-server on the gateway.
     ```bash
