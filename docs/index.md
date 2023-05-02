@@ -16,8 +16,8 @@ This solution allows for using commodity access points running OpenWrt for large
 
 ## Where to go from here
 
+[Architecture Overview](architecture/){ .md-button }
 [Design Document](design/){ .md-button }
-[Technical Introduction](architecture/){ .md-button }
 [Setup](setup/){ .md-button }
 
 ## About
