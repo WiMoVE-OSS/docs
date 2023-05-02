@@ -14,6 +14,12 @@ WiMoVE is built with standard network protocols, on top of open&#8209;source tec
 
 This solution allows for using commodity access points running OpenWrt for large&#8209;scale Wi&#8209;Fi deployments, even from different vendors.
 
+## Where to go from here
+
+[Architecture Overview](architecture/){ .md-button }
+[Design Document](design/){ .md-button }
+[Setup](setup/){ .md-button }
+
 ## About
 
 WiMoVE is a bachelor's project at [Hasso&#8209;Plattner&#8209;Institute](https://hpi.de) at the chair for [Internet Technologies and Softwarization](https://hpi.de/en/research/research-groups/internet-technologies-and-softwarization.html).

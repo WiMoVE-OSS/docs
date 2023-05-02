@@ -40,8 +40,9 @@ theme:
         name: Switch to system preference
 nav:
   - Home: index.md
-  - Architecture:
+  - Architecture Overview:
     - architecture/index.md
+  - Design Document: design/index.md
   - Setup Guide:
     - setup/index.md
     - Setup using Ansible: setup/ansible_setup.md

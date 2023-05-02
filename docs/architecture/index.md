@@ -1,6 +1,4 @@
-# Architecture
-
-### Overview
+# Architecture Overview
 
 As in a regular Wi&#8209;Fi environment, there are **stations** which are connected to **access points**.
 WiMoVE partitions the stations into **overlay networks** which work like regular L2 domains:
