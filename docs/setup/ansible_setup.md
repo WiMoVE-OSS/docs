@@ -67,7 +67,7 @@ By default, we assume that the same interface is used for both internet access a
 
 !!! tip
 
-    You can combine the gateway and route reflector into one machine. To do this, please set the appropriate variable in the inventory file to true and remove all hosts from the `routeReflectors` group.
+    You can combine the gateway and route reflector into one machine. To do this, simply put the same host into both the `routeReflectors` and `gateways` group.
 
 ### Set Number of VNIs
 
