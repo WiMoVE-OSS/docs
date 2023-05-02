@@ -42,6 +42,7 @@ nav:
   - Home: index.md
   - Architecture:
     - architecture/index.md
+  - System Design: design/index.md
   - Setup Guide:
     - setup/index.md
     - Setup using Ansible: setup/ansible_setup.md
