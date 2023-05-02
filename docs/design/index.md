@@ -1,7 +1,6 @@
-# System Design
+# Design Document
 
-Before implementing WiMoVE, there were some design decisions we had to make.
-
-To make them transparent, we have documented our reasoning in our design document which you can read here.
+Before implementing WiMoVE, we made some design decisions which we documented a design document.
+Click the button below to download the document.
 
 [Download Design Document (PDF)](design.pdf){ .md-button }
