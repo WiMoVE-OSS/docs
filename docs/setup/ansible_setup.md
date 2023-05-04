@@ -8,7 +8,7 @@ This guide will show you how you can install you own WiMoVE setup using our ansi
 
 ## Getting to know the components
 
-The parts of this guide will provide information on how to set up each component. Before getting started, please make sure you understand the purpose of each component in the whole system by reading the [Architecture page](../../architecture/index.md).
+The parts of this guide will provide information on how to set up each component. Before getting started, please make sure you understand the purpose of each component in the whole system by reading the [Architecture page](../../architecture/).
 
 WiMoVE provides a package you can install on your OpenWrt router but needs some additional services in your network to be useful:
 
@@ -65,6 +65,10 @@ For the gateway, we need to additionally configure the names of the network inte
 
 By default, we assume that the same interface is used for both internet access and the APs. If this is not the case, uncomment and edit the `wimove_if` line in the inventory.
 
+!!! tip
+
+    You can combine the gateway and route reflector into one machine. To do this, simply put the same host into both the `routeReflectors` and `gateways` group.
+
 ### Set Number of VNIs
 
 We lastly have to decide how many virtual L2 networks we want to provide.
@@ -89,7 +93,7 @@ The ansible playbook currently supports two different types of APs. `zyxel` and 
       1. Download the binary from the latest release on the [Releases Page](https://github.com/WiMoVE-OSS/wimoved/releases)
       2. Download the binary from a recent pipeline run in our [GitHub Repository](https://github.com/WiMoVE-OSS/wimoved)
       3. Cross-Compile it yourself. See the [Development Guide](../../../wimoved/) for details.
-1. Place the binary in the corresponding folder for your AP type. The filepath is`roles/access-point/files/model-name`. Make sure that it has the file extenstion `.ipk` and it is the only `.ipk` file in that directory.
+1. Place the binary in the corresponding folder for your AP type. The filepath is `roles/access-point/files/model-name`. Make sure that it has the file extenstion `.ipk` and it is the only `.ipk` file in that directory.
 
 !!! tip
 

@@ -21,15 +21,18 @@ This IP range can be any size, just make sure you know what it is and that all d
 | TCP      | `179`  | BGP     |
 | UDP      | `4789` | VXLAN   |
 
-### Route Reflector IP Address
-
-This is the IP address at which the route reflector can be reached for both the APs and the gateway.
 
 ### Gateway IP Address
 
 This is the IP address where the gateway can be reached.
 
-### Number of VNIs
+## Route Reflector IP Address
+
+This is the IP address at which the route reflector can be reached for both the APs and the gateway.
+
+The route reflector functionality can also be included in the gateway. This is however currently only described in the ansible deployment guide.
+
+## Number of VNIs
 
 This number decides how many virtual L2 networks will be created and devices will be split up into.
 In theory, any 24-Bit number can be chosen. However, in practice, this number is limited by how many network interfaces your gateway can support.
