@@ -108,7 +108,7 @@ We use an Ubuntu server host as the basis for this setup.
 
 We will use the Ubuntu tool `netplan` to set up and persist the required network devices. Check below for a method without the need for netplan.
 
-1. Overwrite the file `/etc/netplan/00-installer-config.yaml` with the following content. Remember to replace the interface name for your network connection and setting the local IP address.
+1. Overwrite the file `/etc/netplan/00-installer-config.yaml` with the following content. Remember to replace the interface name for your current internet connection and set the local IP address.
 
     ??? abstract "/etc/netplan/00-installer-config.yaml"
 
@@ -116,54 +116,54 @@ We will use the Ubuntu tool `netplan` to set up and persist the required network
         network:
             ethernets:
                 <UPLINK IF NAME>:
-                dhcp4: true
+                    dhcp4: true
             tunnels:
                 vxlan1:
-                mode: vxlan
-                id: 1
-                local: <GATEWAY IP>
-                ttl: 10
-                mac-learning: false
-                port: 4789
+                    mode: vxlan
+                    id: 1
+                    local: <GATEWAY IP>
+                    ttl: 10
+                    mac-learning: false
+                    port: 4789
 
                 vxlan2:
-                mode: vxlan
-                id: 2
-                local: <GATEWAY IP>
-                ttl: 10
-                mac-learning: false
-                port: 4789
+                    mode: vxlan
+                    id: 2
+                    local: <GATEWAY IP>
+                    ttl: 10
+                    mac-learning: false
+                    port: 4789
 
                 vxlan3:
-                mode: vxlan
-                id: 3
-                local: <GATEWAY IP>
-                ttl: 10
-                mac-learning: false
-                port: 4789
+                    mode: vxlan
+                    id: 3
+                    local: <GATEWAY IP>
+                    ttl: 10
+                    mac-learning: false
+                    port: 4789
 
             bridges:
                 br1:
-                interfaces:
-                    - vxlan1
-                parameters:
-                    stp: false
-                addresses:
-                    - 10.1.2.1/24
+                    interfaces:
+                        - vxlan1
+                    parameters:
+                        stp: false
+                    addresses:
+                        - 10.1.2.1/24
                 br2:
-                interfaces:
-                    - vxlan2
-                parameters:
-                    stp: false
-                addresses:
-                    - 10.1.3.1/24
+                    interfaces:
+                        - vxlan2
+                    parameters:
+                        stp: false
+                    addresses:
+                        - 10.1.3.1/24
                 br3:
-                interfaces:
-                    - vxlan3
-                parameters:
-                    stp: false
-                addresses:
-                    - 10.1.4.1/24
+                    interfaces:
+                        - vxlan3
+                    parameters:
+                        stp: false
+                    addresses:
+                        - 10.1.4.1/24
 
         ```
 
@@ -276,7 +276,7 @@ We will use the Ubuntu tool `netplan` to set up and persist the required network
 
 ## Setting Up Dnsmasq
 
-1. Install `dnsmasq` as a dhcp-server on the gateway.
+1. Install `dnsmasq` as a DHCP server on the gateway.
     ```bash
     sudo apt install dnsmasq
     ```

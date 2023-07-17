@@ -1,12 +1,12 @@
 # Setting Up a Route Reflector
 
-In addition to the access points, we use a route reflector to build our control plane. A route reflector can be any kind of machine where frr can be installed. It just needs a L3 connection to the access points and the gateway. We again use an Ubuntu server host for this tutorial.
+In addition to the access points, we use a route reflector to build our control plane. A route reflector can be any kind of machine where FRR can be installed. It just needs a L3 connection to the access points and the gateway. We again use an Ubuntu server host for this tutorial.
 
 ## Setting Up FRR
 
 !!! warning
 
-    This part of the guide is very similar to the one for the gateway. However, the configuration files for frr are different in this case.
+    This part of the guide is very similar to the one for the gateway. However, the configuration files for FRR are different in this case.
 
 1. Install `frr` on the gateway.
 
@@ -114,4 +114,4 @@ $ sudo vtysh
 rr# show bgp neighbor
 ```
 
-It should say that the connection to the access point is established.
+It should say that the connection to the access point has been established.
