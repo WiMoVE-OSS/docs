@@ -1,4 +1,4 @@
-# Setting Up a route reflector
+# Setting Up a Route Reflector
 
 In addition to the access points, we use a route reflector to build our control plane. A route reflector can be any kind of machine where FRR can be installed. It just needs a L3 connection to the access points and the gateway. We again use an Ubuntu server host for this tutorial.
 

@@ -169,7 +169,7 @@ wimoved is the daemon we provide that enables all Access Point features required
       2. Download the binary from a recent pipeline run in our [GitHub Repository](https://github.com/WiMoVE-OSS/wimoved)
       3. Cross-Compile it yourself. See the [Development Guide](../../../wimoved/) for details.
 
-### Copying wimoved to Your AP Via SSH
+### Copying Wimoved to Your AP Via SSH
 
 !!! info
 
@@ -187,7 +187,7 @@ wimoved is the daemon we provide that enables all Access Point features required
     ```
     All further commands will now again need to be run on your AP.
 
-### Installing wimoved
+### Installing Wimoved
 
 1. Install the package on your access point via
 
@@ -198,7 +198,7 @@ wimoved is the daemon we provide that enables all Access Point features required
 2. Run `wimoved`. You should see an error message, showing that wimoved was installed successfully.
 
 
-### Configuring wimoved
+### Configuring Wimoved
 
 The wimoved config file is located at `/etc/wimoved/config`.
 Before we can use the AP, you need to fill this file with some information about your installation.

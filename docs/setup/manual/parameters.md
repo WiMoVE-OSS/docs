@@ -12,7 +12,7 @@ This page will guide you through deciding these values for your use case. You ca
 | Number of VNIs             | `20`            |
 | VNI IPv4 Range Template    | `10.1.X.0/24`   |
 
-## Network IP range
+## Network IP Range
 
 All APs, gateways, and route reflectors need to talk to each other.
 For this reason, you need L3 connectivity between them.
@@ -32,7 +32,7 @@ This is the IP address where the gateway can be reached.
 
 This is the IP address at which the route reflector can be reached for both the APs and the gateway.
 
-The functionality of the route reflector can also be included in the gateway. This is however currently only described in the Snsible deployment guide. You will need to combine the FRR configuration files for the route reflector and gateway to get this to work.
+The functionality of the route reflector can also be included in the gateway. This is however currently only described in the Ansible deployment guide. You will need to combine the FRR configuration files for the route reflector and gateway to get this to work.
 
 ## Number of VNIs
 

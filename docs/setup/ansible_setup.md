@@ -6,7 +6,7 @@ This guide will show you how you can install you own WiMoVE setup using our Ansi
 
     It is a very good idea to at least skim over the different steps of this guide so you know what to expect *before* you try to set up your own system.
 
-## Getting to know the components
+## Getting to Know the Components
 
 The parts of this guide will provide information on how to set up each component. Before getting started, please make sure you understand the purpose of each component in the whole system by reading the [Architecture page](../../architecture/).
 
@@ -34,7 +34,7 @@ To get started, rename the file `example-inventory.yml` to `inventory.yml`.
 
     This playbook is designed to use the IP range `10.0.0.0/8` for the virtual L2 networks. If you use (part of) this IP range for your network already, consider modifying the dnsmasq and VXLAN configuration in the gateway folder to suit your requirements.
 
-### Set WiFi Parameters
+### Set Wi-Fi Parameters
 
 First things first, you need to set a name for your wireless network. Put this name in the `ssid` variable. The passphrase for the network goes into the `secret` variable.
 
@@ -52,7 +52,7 @@ If you want to set up a logging server for yourself, we recommend getting starte
 
 If you do not want to use this feature, simply set `127.0.0.1` as the parameter for `log_server`, otherwise put the IP/domain of your log server here.
 
-### Set Route-Reflector Configuration
+### Set Route Reflector Configuration
 
 Please set the IP address of the route reflector in the variable `route_reflector_ip`. Additionally, please set an IP range from which the route reflector should accept connections (i.e. `10.242.0.0/16`) in the `listen_range` variable.
 
@@ -83,7 +83,7 @@ There, you can see a number of groups. For route reflector and gateway, please i
 
 For the AP section, please put the different types of APs with their names and IP addresses in the inventory.
 
-## (Optional) Deploy to different APs
+## (Optional) Deploy to Different APs
 
 The Ansible playbook currently supports two different types of APs. `zyxel` and `linksys`. If you want to have more or other models, you just have to create the directories and in `roles/access-point/{files,templates}/model-name`. Then you can add a new group to the children of the group `openwrt` in the inventory and set the `directory` variable accordingly. Then follow the next steps.
 
@@ -100,12 +100,12 @@ The Ansible playbook currently supports two different types of APs. `zyxel` and 
 
     You can use arbitrary model names. The `directory` variable for a host only has to match the directory name in `roles/access-points/files` to get the correct binary.
 
-## Generate OpenWrt configuration files
+## Generate OpenWrt Configuration Files
 
 Since each AP is different, you need different configuration files for each model.
-For this reason, we do not provide complete configuration files APs but rather guide you how to create them yourself.
+For this reason, we do not provide complete configuration files but rather guide you how to create them yourself.
 
-1. Go to the web interface of one of your APs running OpenWRT and configure a WPA2-PSK wireless network for each radio you wish to use. You can set any SSID and password, you will overwrite them in a minute. Make sure to press save at the end.
+1. Go to the web interface of one of your APs running OpenWrt and configure a WPA2-PSK wireless network for each radio you wish to use. You can set any SSID and password, you will overwrite them in a minute. Make sure to press save at the end.
 2. Open an SSH console to the AP and run
 
     ```bash
@@ -161,7 +161,7 @@ For this to work properly, you have to set up SSH key authentication on each of 
 
 Please make sure that your SSH config file contains all the hostnames you gave to the hosts in your inventory. Otherwise, when running the playbook you will get an error that the name could not be resolved.
 
-### Running the playbook
+### Running the Playbook
 
 !!! warning "Before you run the playbook: A note on SSH key passphrases"
 
