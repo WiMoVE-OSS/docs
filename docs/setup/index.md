@@ -6,12 +6,12 @@ Before getting started, please make sure you have all hardware required for a wo
 You need:
 
 - At least one Access Point running OpenWrt 22.03 or later
-- One Ubuntu Server 22.10 or later machine to be used as a Route Reflector
-- One Ubuntu Server 22.10 or later machine to be used as a Gateway
+- One Ubuntu Server 22.10 or later machine to be used as a route reflector
+- One Ubuntu Server 22.10 or later machine to be used as a gateway
 
 !!! info
 
-    The Route Reflector and Gateway can be combined into one machine. See the Ansible deployment guide for details.
+    The route reflector and gateway can be combined into one machine. See the Ansible deployment guide for details.
 
 ## Installation Methods
 

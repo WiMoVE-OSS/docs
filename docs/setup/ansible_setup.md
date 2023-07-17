@@ -58,7 +58,7 @@ Please set the IP address of the route reflector in the variable `route_reflecto
 
 ### Set Gateway Configuration
 
-For the gateway, we need to additionally configure the names of the network interfaces that are used.
+For the gateway, you need to additionally configure the names of the network interfaces that are used.
 
 - `uplink_if` is the interface that will be used for internet access for the overlay networks
 - `wimove_if` is the interface that will be connected to the L3 environment where all APs can be reached
@@ -71,7 +71,7 @@ By default, we assume that the same interface is used for both internet access a
 
 ### Set Number of VNIs
 
-We lastly have to decide how many virtual L2 networks we want to provide.
+You lastly have to decide how many virtual L2 networks you want to provide.
 
 The ansible playbook theoretically supports up to 65.000 VNIs but we recommend starting with a small number (i.e. 20) to get started and scale up later.
 The reason for this is the fact that the large number of network interfaces on the gateway can result in a very long boot time which you likely do not want in a testing scenario.
@@ -102,21 +102,21 @@ The Ansible playbook currently supports two different types of APs. `zyxel` and 
 
 ## Generate OpenWrt configuration files
 
-Since each AP is different, we need different kinds of configuration files for each model.
+Since each AP is different, you need different configuration files for each model.
 For this reason, we do not provide complete configuration files APs but rather guide you how to create them yourself.
 
-1. Go to the web interface of one of your APs running OpenWRT and configure a WPA2-PSK wireless network for each radio you wish to use. You can set any SSID and password, we will overwrite them in a minute. Make sure to press save at the end.
-1. Open an SSH console to the AP and run
+1. Go to the web interface of one of your APs running OpenWRT and configure a WPA2-PSK wireless network for each radio you wish to use. You can set any SSID and password, you will overwrite them in a minute. Make sure to press save at the end.
+2. Open an SSH console to the AP and run
 
     ```bash
     uci export
     ```
     to export the configuration for the AP.
 
-1. Copy the output of the command and place it in a file called `config.ota.j2` in the folder `roles/access-point/templates/model-name` that corresponds to your AP type in the ansible playbook.
-1. Open the file in a text editor.
-1. Go to the end of the file. There, you should find a section for each wireless network you configured in the previous step.
-1. Adjust each of these `wifi-iface` sections so that they contain the following lines:
+3. Copy the output of the command and place it in a file called `config.ota.j2` in the folder `roles/access-point/templates/model-name` that corresponds to your AP type in the ansible playbook.
+4. Open the file in a text editor.
+5. Go to the end of the file. There, you should find a section for each wireless network you configured in the previous step.
+6. Adjust each of these `wifi-iface` sections so that they contain the following lines:
 
     ```text
     option ssid '{{ ssid }}'
@@ -150,7 +150,7 @@ in the repo folder.
 
 ### Preparing the Run
 
-Before we run the playbook, we have to make sure that we can connect to all APs and other machines via SSH.
+Before you run the playbook, you have to make sure that you can connect to all APs and other machines via SSH.
 For this to work properly, you have to set up SSH key authentication on each of the devices.
 
 !!! tip
@@ -174,7 +174,7 @@ Please make sure that your SSH config file contains all the hostnames you gave t
     ```bash
     eval "$(ssh-agent -s)"
     ```
-    to start ssh-agent. Now, we need to load your private key by running (depending on the location of your key file)
+    to start ssh-agent. Now, you need to load your private key by running (depending on the location of your key file)
     ```bash
     ssh-add ~/.ssh/id_rsa
     ```

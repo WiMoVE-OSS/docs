@@ -15,7 +15,7 @@ This page will guide you through deciding these values for your use case. You ca
 ## Network IP range
 
 All APs, gateways, and route reflectors need to talk to each other.
-For this reason, we need L3 connectivity between them.
+For this reason, you need L3 connectivity between them.
 This IP range can be any size, just make sure you know what it is and that all devices inside it can reach each other at least on the following ports:
 
 | Protocol | Port   | Purpose |
@@ -44,7 +44,7 @@ We recommend getting started with a number around 20 and scaling up if VXLANs ge
 
 Each VNI needs its own IP range that will then be used to assign IP addresses via DHCP.
 
-For the gateway to work properly, we have to ensure that these IP ranges do not overlap each other.
+For the gateway to work properly, you have to ensure that these IP ranges do not overlap each other.
 Additionally, these ranges should not overlap any IP ranges the gateway has access to, i.e., the company intranet.
 
 The exact template you decide on depends on how many VNIs you have as well as how many devices you expect to be in every L2 network.

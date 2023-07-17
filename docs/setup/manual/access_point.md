@@ -1,10 +1,10 @@
 # Setting Up an Access Point
 
-This part of the guide will show you how to set up wimoved on your OpenWrt Access Point.
+This part of the guide will show you how to set up WiMoVEd on your OpenWrt Access Point.
 
 !!! info
 
-    OpenWrt is available for a large number of different types of access points. Different APs may use different processor architectures. For this reason, you need a version of wimoved that is compatible with your architecture.
+    OpenWrt is available for a large number of different types of access points. Different APs may use different processor architectures. For this reason, you need a version of WiMoVEd that is compatible with your architecture.
 
     We try to provide builds for as many architectures as reasonably possible. If you have OpenWrt hardware you would like to see supported, please [open an issue](https://github.com/WiMoVE-OSS/wimoved/issues/new).
 
@@ -211,7 +211,7 @@ hapd_sockdir=/var/run/hostapd
 hapd_group=network
 # Interval (seconds) after which interfaces for disconnected stations are removed
 cleanup_interval=30
-# Number of VNIs the stations are assigned to. wimoved will use VNI 1 to n.
+# Number of VNIs the stations are assigned to. WiMoVEd will use VNI 1 to n.
 max_vni=20
 ```
 
