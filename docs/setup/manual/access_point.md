@@ -10,7 +10,7 @@ This part of the guide will show you how to set up wimoved on your OpenWrt Acces
 
 !!! tip
 
-    The AP needs to have an internet connection to be able to install dependencies
+    The AP needs to have an internet connection to be able to install dependencies.
 
 ## Preparing Your AP
 
@@ -69,7 +69,7 @@ This configuration can be edited via the web interface or by modifying the file 
 
 
 
-When connecting to the Wi-Fi network you just created, you should see that an interface with the name `vlan*` gets created where \* is an arbitrary number. The interface should disappear, after the station disconnects. You can check the existing interfaces with `ip l`. If you do not see the interfaces, recheck that you followed the guide exactly.
+When connecting to the Wi-Fi network you just created, you should see that an interface with the name `vlan*` gets created where \* is an arbitrary number. The interface should disappear after the station disconnects. If you do not see the interfaces, recheck that you followed the guide exactly.
 
 ## Setting Up FRR
 

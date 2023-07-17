@@ -12,7 +12,7 @@ There is one **gateway** that serves as IP Next Hop in all overlay networks, pro
 Central network functions like DHCP/DNS servers can also be deployed there.
 
 As a control plane, we use BGP EVPN.
-For more efficient route distribution, there is one **route reflectors** which peers with the gateway and all Access Points.
+For more efficient route distribution, there is one **route reflector** which peers with the gateway and all Access Points.
 It should be possible to use BGP topologies without a central route reflector or with multiple route reflectors, but we haven't tested them yet.
 
 ### Assigning Stations to Overlay Networks
@@ -46,4 +46,4 @@ We can also create a diagram of iBGP peerings:
 
 ### Further Information
 
-A more in-depth explanation of our design decisions is available in our [design document](Link to desgin document). 
+A more in-depth explanation of our design decisions is available in our [design document](/docs/design/).
