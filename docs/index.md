@@ -14,7 +14,7 @@ WiMoVE is built with standard network protocols, on top of open&#8209;source tec
 
 This solution allows for using commodity access points running OpenWrt for large&#8209;scale Wi&#8209;Fi deployments, even from different vendors.
 
-A high-level explanation of the project can be seen in [this presentation](https://www.tele-task.de/lecture/video/10107/) (german).
+A high-level explanation of the project can be seen in [this presentation](https://www.tele-task.de/lecture/video/10107/) (German).
 
 
 ## Where to go from here
