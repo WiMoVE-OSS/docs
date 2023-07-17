@@ -1,10 +1,10 @@
 # Setting Up an Access Point
 
-This part of the guide will show you how to set up WiMoVEd on your OpenWrt Access Point.
+This part of the guide will show you how to set up wimoved on your OpenWrt Access Point.
 
 !!! info
 
-    OpenWrt is available for a large number of different types of access points. Different APs may use different processor architectures. For this reason, you need a version of WiMoVEd that is compatible with your architecture.
+    OpenWrt is available for a large number of different types of access points. Different APs may use different processor architectures. For this reason, you need a version of wimoved that is compatible with your architecture.
 
     We try to provide builds for as many architectures as reasonably possible. If you have OpenWrt hardware you would like to see supported, please [open an issue](https://github.com/WiMoVE-OSS/wimoved/issues/new).
 
@@ -157,9 +157,9 @@ FRRouting is used to enable the control plane of the underlying VXLAN EVPN netwo
 
 You can check the configuration of FRR using the `vtysh` command. This command provides a stateful shell to manipulate FRR. More detailed documentation about vtysh can be found [here](https://docs.frrouting.org/en/latest/vtysh.html).
 
-## Setting Up WiMoVEd
+## Setting Up wimoved
 
-WiMoVEd is the daemon we provide that enables all Access Point features required for WiMoVE. It as well as all other dependencies need to be installed in every AP in your Wi&#8209;Fi system.
+wimoved is the daemon we provide that enables all Access Point features required for WiMoVE. It as well as all other dependencies need to be installed in every AP in your Wi&#8209;Fi system.
 
 ### Obtaining the Correct Binary
 
@@ -169,7 +169,7 @@ WiMoVEd is the daemon we provide that enables all Access Point features required
       2. Download the binary from a recent pipeline run in our [GitHub Repository](https://github.com/WiMoVE-OSS/wimoved)
       3. Cross-Compile it yourself. See the [Development Guide](../../../wimoved/) for details.
 
-### Copying WiMoVEd to Your AP Via SSH
+### Copying wimoved to Your AP Via SSH
 
 !!! info
 
@@ -187,7 +187,7 @@ WiMoVEd is the daemon we provide that enables all Access Point features required
     ```
     All further commands will now again need to be run on your AP.
 
-### Installing WiMoVEd
+### Installing wimoved
 
 1. Install the package on your access point via
 
@@ -195,12 +195,12 @@ WiMoVEd is the daemon we provide that enables all Access Point features required
     opkg update && opkg install <Path to wimoved>`
     ```
 
-2. Run `wimoved`. You should see an error message, showing that WiMoVEd was installed successfully.
+2. Run `wimoved`. You should see an error message, showing that wimoved was installed successfully.
 
 
-### Configuring WiMoVEd
+### Configuring wimoved
 
-The WiMoVEd config file is located at `/etc/wimoved/config`.
+The wimoved config file is located at `/etc/wimoved/config`.
 Before we can use the AP, you need to fill this file with some information about your installation.
 
 1. Create a file located at `/etc/wimoved/config` and fill it with the following lines:
@@ -211,7 +211,7 @@ hapd_sockdir=/var/run/hostapd
 hapd_group=network
 # Interval (seconds) after which interfaces for disconnected stations are removed
 cleanup_interval=30
-# Number of VNIs the stations are assigned to. WiMoVEd will use VNI 1 to n.
+# Number of VNIs the stations are assigned to. wimoved will use VNI 1 to n.
 max_vni=20
 ```
 

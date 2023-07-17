@@ -10,7 +10,7 @@ This guide will show you how you can install you own WiMoVE setup using our Ansi
 
 The parts of this guide will provide information on how to set up each component. Before getting started, please make sure you understand the purpose of each component in the whole system by reading the [Architecture page](../../architecture/).
 
-WiMoVE provides a package you can install on your OpenWrt router (WiMoVEd) but needs some additional services in your network to be useful:
+WiMoVE provides a package you can install on your OpenWrt router (wimoved) but needs some additional services in your network to be useful:
 
 - The **gateway** is responsible for terminating the overlay networks and provides internet access.
 - The **route reflector** is part of the control plane. It receives routing information and distributes the information to the access points and the gateway.
